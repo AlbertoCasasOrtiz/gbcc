@@ -11,6 +11,8 @@ on:
       - master
       - actions
 
+  workflow_dispatch:
+  
 jobs:
   ubuntu:
 
