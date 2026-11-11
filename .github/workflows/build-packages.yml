@@ -16,16 +16,16 @@ on:
 jobs:
   ubuntu:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout gbcc-debian-tools repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v7
         with:
           repository: philj56/gbcc-debian-tools
 
       - name: Checkout main repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v7
         with:
           path: gbcc
           fetch-depth: 0
@@ -43,7 +43,7 @@ jobs:
         run: ./gendeb.sh
 
       - name: Upload package
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v7
         with:
           name: gbcc-debian
           path: gbcc-debian
@@ -63,7 +63,7 @@ jobs:
           update: true
 
       - name: Checkout main repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v7
 
       - name: Build package
         run: |
@@ -73,7 +73,7 @@ jobs:
           mv dist ../package/gbcc
 
       - name: Upload package
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v7
         with:
           name: gbcc-windows
           path: package
